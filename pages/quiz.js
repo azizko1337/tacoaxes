@@ -59,7 +59,7 @@ const Answer = styled.button`
     color:${({theme}) => theme.bright};
     transition: background-color .3s;
 
-    @min-width:1024px{
+    @media(min-width:1024px){
         &:hover{
             background-color:${({theme}) => theme.dark};
         }
