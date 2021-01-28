@@ -155,16 +155,17 @@ const Test = (props) => {
     const [showResult, setShowResult] = useState(false);
 
     const handleAnswer = (e) => {
-        console.log(e.target.dataset)
         const name = e.target.dataset.answername;
 
         if(currentQuestion===10){
             setShowResult(true);
+            if(props.test[currentQuestion-1].correctAlbum===name){
+                setResult(result+1);
+            }
             return;
         }
 
-        console.log(props.test[currentQuestion].correctAlbum, name);
-        if(props.test[currentQuestion].correctAlbum===name){
+        if(props.test[currentQuestion-1].correctAlbum===name){
             setResult(result+1);
         }
         setCurrentQuestion(currentQuestion+1);
@@ -181,16 +182,16 @@ const Test = (props) => {
                     (<QuestionContainer>
                         {sliceVersesToSkill(currentVerse).map((verse, index) => (<Title key={index}>{index===0 ? `[${currentQuestion}/10] ` : null}{verse}</Title>))}
                         <Answers>
-                            <Answer onClick={handleAnswer} image="./albums/trojkatwarszawski.jpg"><AlbumTitle data-answerName="TROJKATWARSZAWSKI">Trójkąt warszawski</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/umowaodzielo.jpg"><AlbumTitle data-answerName="UMOWAODZIELO">Umowa o dzieło</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/wosk.jpg"><AlbumTitle data-answerName="WOSK">Wosk</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/marmur.jpg"><AlbumTitle data-answerName="MARMUR">Marmur</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/szprycer.jpg"><AlbumTitle data-answerName="SZPRYCER">Szprycer</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/cafebelga.jpg"><AlbumTitle data-answerName="CAFEBELGA">Cafe Belga</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/flagey.jpg"><AlbumTitle data-answerName="FLAGEY">Flagey</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/pocztowkazwwa.jpg"><AlbumTitle data-answerName="POCZTOWKAZWWA">Pocztówka z WWA</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/jarmark.jpg"><AlbumTitle data-answerName="JARMARK">Jarmark</AlbumTitle></Answer>
-                            <Answer onClick={handleAnswer} image="./albums/europa.jpg"><AlbumTitle data-answerName="EUROPA">Europa</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/trojkatwarszawski.jpg"><AlbumTitle data-answername="TROJKATWARSZAWSKI">Trójkąt warszawski</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/umowaodzielo.jpg"><AlbumTitle data-answername="UMOWAODZIELO">Umowa o dzieło</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/wosk.jpg"><AlbumTitle data-answername="WOSK">Wosk</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/marmur.jpg"><AlbumTitle data-answername="MARMUR">Marmur</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/szprycer.jpg"><AlbumTitle data-answername="SZPRYCER">Szprycer</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/cafebelga.jpg"><AlbumTitle data-answername="CAFEBELGA">Cafe Belga</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/flagey.jpg"><AlbumTitle data-answername="FLAGEY">Flagey</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/pocztowkazwwa.jpg"><AlbumTitle data-answername="POCZTOWKAZWWA">Pocztówka z WWA</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/jarmark.jpg"><AlbumTitle data-answername="JARMARK">Jarmark</AlbumTitle></Answer>
+                            <Answer onClick={handleAnswer} image="./albums/europa.jpg"><AlbumTitle data-answername="EUROPA">Europa</AlbumTitle></Answer>
                         </Answers>
                     </QuestionContainer>)
             )
