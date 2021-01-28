@@ -1,22 +1,18 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import {useState} from 'react';
 import MaxWidth from '../styles/MaxWidth';
 import Link from 'next/link';
 
 
-const StartButton = styled.button`
-  position:absolute;
-  top:70%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  padding:20px;
+const Button = styled.button`
   border:none;
   background-color:${({theme}) => theme.black};
   color:${({theme}) => theme.bright};
   font-size:1.5rem;
   cursor:pointer;
   transition:background-color .2s;
+  flex-basis:40%;
+  height:12vh;
 
   &:hover{
     background-color:${({theme}) => theme.dark};
@@ -42,11 +38,32 @@ const Description = styled.p`
   }
 `
 
+const Menu = styled.menu`
+  display:flex;
+  width:50%;
+  justify-content:space-around;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%);
+
+  @media(max-width:1024px){
+    top:60%;
+    flex-direction:column;
+    height:30vh;
+  }
+`
+
 export default function Home(props) {
   return (
     <MaxWidth>
       <Description>Quiz, pozwalający wyłonić najbardziej pasujące do Ciebie piwo! Wynik przedstawiony jest na dwóch osiach. Pytań jest 21, a ukończenie testu zajmuje ok. 5 minut.</Description>
-      <Link href="/quiz"><StartButton>Zaczynamy!</StartButton></Link>
+      <Menu>
+        <Link href="/axes"><Button>Kompas!</Button></Link>
+        <Link href="/test"><Button>Test!</Button></Link>
+      </Menu>
     </MaxWidth>
   )
 }
+
+

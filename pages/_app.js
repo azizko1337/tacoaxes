@@ -1,7 +1,10 @@
 import Header from '../components/Header';
+import Footer from '../styled-components/Footer';
 import GlobalStyles from '../styles/globalStyles';
 import styled from 'styled-components';
 import {ThemeProvider} from 'styled-components';
+import {useState} from 'react';
+
 
 const QUESTIONS_DATA = [
   {
@@ -382,35 +385,78 @@ const QUESTIONS_DATA = [
   },
 ]
 
-const theme = {
-  bright: '#F2CAA7',
-  dark: '#1F1826',
-  black: '#0D0D0D',
-  medium: '#734A46',
-  rose: '#BF847E',
-  header: '#FEE1B9'
-}
-
 const Main = styled.main`
-  height:88vh;
+  height:83vh;
   background-color:${({theme}) => theme.bright};
+  
 `
 
-function MyApp({ Component, pageProps }) {
+let themeIndex = 0;
+
+function MyApp({ Component, pageProps, themes }) {
+  const [currentTheme, setCurrentTheme] = useState(themes[themeIndex]);
+  
+  const changeTheme = () => {
+    if(themeIndex===themes.length-1){
+      themeIndex = 0;
+    }
+    else{
+      themeIndex++;
+    }
+    setCurrentTheme(themes[themeIndex]);
+  }
+
   return (
     <>
       <link rel="preconnect" href="https://fonts.gstatic.com"/>
       <link href={"https://fonts.googleapis.com/css2?family=Pacifico&display=swap"} rel="stylesheet"/>
       <GlobalStyles/>
       
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={currentTheme}>
         <Header/>
         <Main>
           <Component {...pageProps} QUESTIONS_DATA={QUESTIONS_DATA}/>
         </Main>
+        <Footer onClick={changeTheme}></Footer>
       </ThemeProvider>
     </>
   )
+}
+
+MyApp.getInitialProps = async ({Component, ctx}) => {
+  const themes = [
+    {
+      bright: '#F2CAA7',
+      dark: '#1F1826',
+      black: '#0D0D0D',
+      medium: '#734A46',
+      rose: '#BF847E',
+      header: '#FEE1B9'
+    },
+    {
+      bright: '#F27507',
+      dark: '#594827',
+      black: '#0D0D0D',
+      medium: '#0D0D0D',
+      rose: '#D93F07',
+      header: '#F27507'
+    },
+    {
+      bright: '#FEFEFE',
+      dark: '#212406',
+      black: '#FC4D85',
+      medium: '#763E3B',
+      rose: '#848CA2',
+      header: '#FEFEFE'
+    },
+  ]
+
+  let pageProps = {}
+  if(Component.getInitialProps){
+    pageProps = await Component.getInitialProps(ctx)
+  }
+
+  return {themes, pageProps};
 }
 
 export default MyApp

@@ -19,7 +19,7 @@ const Header = (props) => {
     return(
         <Bar>
             <MaxWidth>
-                <Link href="/"><Title>TACO AXES</Title></Link>
+                <Link href="/"><Title>TACO-AXES</Title></Link>
             </MaxWidth>
         </Bar>
     )

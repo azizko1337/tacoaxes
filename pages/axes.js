@@ -16,7 +16,7 @@ const QuestionContainer = styled.div`
     padding:15px;
     justify-content:space-between;
 
-    background-color:${({theme}) => theme.black};
+
 
     @media(max-width:1024px){
         width:80%;
@@ -29,7 +29,7 @@ const Question = styled.h1`
     text-align:center;
     word-wrap: break-word;
     flex-basis:30%;
-    color:${({theme}) => theme.bright};
+    color:${({theme}) => theme.black};
     font-size:1.6rem;
 `
 
@@ -83,7 +83,7 @@ const ResultContainer = styled.div`
     padding:15px;
     justify-content:space-between;
 
-    background-color:${({theme}) => theme.black};
+
 
     @media(max-width:1024px){
         width:80%;
@@ -96,7 +96,7 @@ const Title = styled.h1`
     text-align:center;
     word-wrap: break-word;
     flex-basis:30%;
-    color:${({theme}) => theme.bright};
+    color:${({theme}) => theme.black};
     font-size:1.6rem;
 `
 const Axes = styled.div`
@@ -139,7 +139,7 @@ const Disclaimer = styled.p`
     left:50%;
     bottom:1%;
     transform:translateX(-50%);
-    color:${({theme}) => theme.bright};
+    color:${({theme}) => theme.black};
     width:100%;
     text-align:center;
     font-weight:300;
