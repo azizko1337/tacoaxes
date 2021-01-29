@@ -208,7 +208,7 @@ const Test = (props) => {
 }
 
 Test.getInitialProps = async (ctx) => {
-    const response = await fetch('https://tacoaxes.vercel.app/api/getQuestions');
+    const response = await fetch('https://tacoaxes.vercel.app:3000/api/getQuestions');
     const data = await response.json();
     return ({test: data});
   }

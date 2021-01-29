@@ -4,6 +4,7 @@ import GlobalStyles from '../styles/globalStyles';
 import styled from 'styled-components';
 import {ThemeProvider} from 'styled-components';
 import {useState} from 'react';
+import Head from "next/head";
 
 
 const QUESTIONS_DATA = [
@@ -408,10 +409,15 @@ function MyApp({ Component, pageProps, themes }) {
 
   return (
     <>
-      <link rel="preconnect" href="https://fonts.gstatic.com"/>
-      <link href={"https://fonts.googleapis.com/css2?family=Pacifico&display=swap"} rel="stylesheet"/>
+      <Head>
+        <link rel="manifest" href="/static/manifest.json" />
+        <link rel="manifest" href="/static/site.webmanifest" />
+        <link rel="shortcut icon" href="/static/favicon.ico"/>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href={"https://fonts.googleapis.com/css2?family=Pacifico&display=swap"} rel="stylesheet"/>
+      </Head>
       <GlobalStyles/>
-      
       <ThemeProvider theme={currentTheme}>
         <Header/>
         <Main>
