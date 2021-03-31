@@ -162,7 +162,6 @@ const Quiz = (props) => {
     const [rigczTheme, setRigczTheme] = useState(false);
     const [isDisclaimerShown, setDisclaimerShown] = useState(false);
 
-    console.log(horizontalAxis, verticalAxis);
 
     const nextQuestion = (effectX, effectY) => {
         setCurrentQuestion(currentQuestion+1);

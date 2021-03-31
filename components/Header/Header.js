@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import MaxWidth from '../styles/MaxWidth';
+import MaxWidth from '../../styles/MaxWidth';
 import Link from 'next/link';
 
 const Bar = styled.header`

@@ -1,9 +1,0 @@
-{
-    "name": "Hacker News",
-    "short_name": "Hacker News",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#f0f0f0",
-    "theme_color": "#ff6600",
-    "description": "A simple Hacker News PWA."
-  }

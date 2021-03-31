@@ -61,6 +61,7 @@ export default function Home(props) {
       <Menu>
         <Link href="/axes"><Button>Kompas!</Button></Link>
         <Link href="/test"><Button>Test!</Button></Link>
+        <Link href="/marmur"><Button>Marmur!</Button></Link>
       </Menu>
     </MaxWidth>
   )

@@ -1,10 +1,11 @@
-import Header from '../components/Header';
-import Footer from '../styled-components/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import GlobalStyles from '../styles/globalStyles';
-import styled from 'styled-components';
+
 import {ThemeProvider} from 'styled-components';
 import {useState} from 'react';
 import Head from "next/head";
+import Main from '../components/Main/Main';
 
 
 const QUESTIONS_DATA = [
@@ -386,11 +387,7 @@ const QUESTIONS_DATA = [
   },
 ]
 
-const Main = styled.main`
-  height:83vh;
-  background-color:${({theme}) => theme.bright};
-  
-`
+
 
 let themeIndex = 0;
 
@@ -438,14 +435,6 @@ MyApp.getInitialProps = async ({Component, ctx}) => {
       medium: '#734A46',
       rose: '#BF847E',
       header: '#FEE1B9'
-    },
-    {
-      bright: '#F27507',
-      dark: '#594827',
-      black: '#0D0D0D',
-      medium: '#0D0D0D',
-      rose: '#D93F07',
-      header: '#F27507'
     },
     {
       bright: '#FEFEFE',
