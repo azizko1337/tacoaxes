@@ -11,7 +11,6 @@ const Button = styled.button`
   font-size:1.5rem;
   cursor:pointer;
   transition:background-color .2s;
-  flex-basis:40%;
   height:12vh;
 
   &:hover{
@@ -19,45 +18,27 @@ const Button = styled.button`
   }
 `
 
-const Description = styled.p`
-  position:absolute;
-  width:60%;
-  max-height:40%;
-  text-align:center;
-  overflow:hidden;
-  top:20%;
-  left:50%;
-  transform:translateX(-50%);
-  color:${({theme}) => theme.dark};
-  font-weight:300;
-  font-size:1.5rem;
-
-
-  @media(max-width:1024px){
-    width:80%;
-  }
-`
 
 const Menu = styled.menu`
   display:flex;
-  width:50%;
+  width:40%;
   justify-content:space-around;
   position:absolute;
   top:50%;
   left:50%;
-  transform:translateX(-50%);
+  transform:translate(-50%, -50%);
+  flex-direction:column;
+  height:50vh;
 
-  @media(max-width:1024px){
-    top:60%;
-    flex-direction:column;
-    height:30vh;
+  @media(max-width:1200px){
+    width:65%;
   }
+
 `
 
 export default function Home(props) {
   return (
     <MaxWidth>
-      <Description>Quiz, pozwalający wyłonić najbardziej pasujące do Ciebie piwo! Wynik przedstawiony jest na dwóch osiach. Pytań jest 21, a ukończenie testu zajmuje ok. 5 minut.</Description>
       <Menu>
         <Link href="/axes"><Button>Kompas!</Button></Link>
         <Link href="/test"><Button>Test!</Button></Link>
