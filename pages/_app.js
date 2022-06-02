@@ -407,9 +407,7 @@ function MyApp({ Component, pageProps, themes }) {
   return (
     <>
       <Head>
-        <link rel="manifest" href="/static/manifest.json" />
-        <link rel="manifest" href="/static/site.webmanifest" />
-        <link rel="shortcut icon" href="/static/favicon.ico"/>
+        <link rel="shortcut icon" href="favicon.ico"/>
         
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href={"https://fonts.googleapis.com/css2?family=Pacifico&display=swap"} rel="stylesheet"/>
